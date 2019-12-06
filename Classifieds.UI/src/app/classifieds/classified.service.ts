@@ -74,7 +74,8 @@ export class ClassifiedService {
   
   }
   getUser(id:number):Observable<Publisher>{
-     return of(this.publisher);
+      return this.http.get<Publisher>('http://localhost:50763/api/user/' + id);
+  
   }
   
   updateStatus(id:number):void{
