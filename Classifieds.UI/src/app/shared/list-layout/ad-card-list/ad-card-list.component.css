@@ -1,0 +1,47 @@
+.ad-list-card{
+    height: 64px;
+    border: 1px solid #dee2e6 !important;
+    padding: 0px 16px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #323232;
+    
+}
+
+.item-title-head{
+    min-width: 365px;
+}
+.price{
+    width:80px
+}
+.posted{
+    width:120px;
+}
+.expires{
+    width:80px ;
+}
+.offer-count{
+    width: 72px;
+}
+.comment-count{
+    width:86px;
+    margin-right: 10px;
+}
+.nav-link{
+    padding: 0;
+}
+.ad-image{
+    margin-right: 10px;
+}
+.tilte-text{
+    font-weight: 480;
+}
+.icon{
+    color:#a4aab2;
+    font-size:14px;
+}
+.ad-text{
+    color:#a4aab2;
+    font-size: 12px;
+}

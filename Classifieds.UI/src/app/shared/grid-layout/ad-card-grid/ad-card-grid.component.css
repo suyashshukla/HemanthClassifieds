@@ -1,0 +1,33 @@
+.card{
+    min-width: 360px;
+    height: 320px;
+    
+   }
+   
+   
+   
+   .ad-header{
+       height: 48px;
+   }
+   .ad-details{
+     
+       height: 108px;
+   }
+   .ad-comments{
+       margin-left:20px;
+   }
+   .label-color{
+       color:#222222;
+   }
+   .icon,.icon-text{
+       color: #a4aab2;
+   }
+   .category-icon,.category-text{
+       color:#ffffff;
+   }
+   .ad-title-container{
+        margin-top:-30px;
+        height: 30px;
+        background-color: rgba(0,0,0,0.4);
+        
+   }

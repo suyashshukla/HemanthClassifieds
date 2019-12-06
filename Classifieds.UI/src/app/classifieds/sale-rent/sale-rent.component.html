@@ -1,0 +1,7 @@
+<div class="page-title">
+    <h4 class="mb-0">For Sale/Rent</h4>
+    <p class="text-secondary mb-0">Here you can manage the way you capture attendancenof your employess</p>
+</div>
+<app-filter-bar (activeemit)="getVal($event)"></app-filter-bar>
+<app-grid-layout *ngIf="active===true"></app-grid-layout>
+<app-list-layout *ngIf="active!==true"></app-list-layout>

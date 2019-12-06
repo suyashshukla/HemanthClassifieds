@@ -1,0 +1,15 @@
+.org-name{
+    font-size:16px;
+}
+.cc-logo{
+    padding: 0px 20px 0px 28px;
+}
+.navbar .navbar-brand {
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100px;
+}
+
+.profile-name{
+    color:white;
+}

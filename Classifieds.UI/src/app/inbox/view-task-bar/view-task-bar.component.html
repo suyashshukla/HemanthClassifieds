@@ -1,0 +1,40 @@
+<div class="ml-4 d-flex flex-row mt-4 border rounded">
+    <div [ngSwitch]="true">
+        <div class="offers d-inline-flex flex-column border-right" *ngSwitchCase="activeOption=='Offers'" >
+            <p class="heading font-size-11 border-bottom px-3 py-2 m-0">{{activeOption | uppercase}}<span class="pl-1">({{offerData.length}})</span></p>
+            <div id = '{{offer.offerId}}'class="border-bottom ad-list py-3 px-2 " *ngFor='let offer of offerData;' (click)='showChat(ad_id)' #ad_id>
+                <img class="float-left thumbnail mr-2 " src="{{offer.adThumbnail}}" alt="adThumbnail"/>
+                <div class="cut-text d-inline"><p class="m-0 name-text-color d-inline">{{offer.adName}}</p></div><span class="offer-time-text-color float-right font-size-11">{{offer.time | date:'shortTime'}}</span>
+                <p class="m-0 pt-1 offer-time-text-color">Offered Amount: &#8377; {{offer.amount}}</p>
+            </div>
+        </div>
+        <div class="offers d-inline-flex flex-column border-right" *ngSwitchCase="activeOption=='Reports'">
+            <p class="heading font-size-11 border-bottom px-3 py-2 m-0">{{activeOption | uppercase}}<span class="pl-1">({{removedAdsData.length}})</span></p>
+            <div id = '{{i}}'class="border-bottom ad-list py-3 px-2 " *ngFor='let removedAd of removedAdsData; let i = index' (click)='showReason(ad_id)' #ad_id>
+                <img class="float-left thumbnail mr-2" src="{{removedAd.adThumbnail}}" alt="adThumbnail"/>
+                <div class="cut-text d-inline"><p class="m-0 name-text-color d-inline">{{removedAd.adName}}</p></div><span class="offer-time-text-color float-right font-size-11">{{removedAd.time | date:'shortTime'}}</span>
+                <p class="m-0 pt-1 offer-time-text-color">Removed Ad By {{removedAd.removedBy}}</p>
+            </div>
+        </div>
+        <div class="offers d-inline-flex flex-column border-right" *ngSwitchCase="activeOption=='Ad Expired'">
+            <p class="heading font-size-11 border-bottom px-3 py-2 m-0">{{activeOption | uppercase}}<span class="pl-1">({{expiredAdsData.length}})</span></p>
+            <div id = '{{i}}'class="border-bottom ad-list py-3 px-2 " *ngFor='let expiredAd of expiredAdsData; let i = index' (click)='showReason(ad_id)' #ad_id>
+                <img class="float-left thumbnail mr-2" src="{{expiredAd.adThumbnail}}" alt="adThumbnail"/>
+                <div class="cut-text d-inline"><p class="m-0 name-text-color d-inline">{{expiredAd.adName}}</p></div><span class="offer-time-text-color float-right font-size-11">{{expiredAd.time | date:'shortTime'}}</span>
+                <p class="m-0 pt-1 offer-time-text-color" *ngIf="expiredAd.removedBy==='Expired'">{{expiredAd.removedBy}}</p>
+                <p class="m-0 pt-1 offer-time-text-color" *ngIf="expiredAd.removedBy!=='Expired'">Removed Ad By {{expiredAd.removedBy}}</p>
+            </div>
+        </div>
+        <div class="offers d-inline-flex flex-column border-right" *ngSwitchCase="activeOption=='Deleted Items'">
+            <p class="heading font-size-11 border-bottom px-3 py-2 m-0">{{activeOption | uppercase}}<span class="pl-1">({{deletedAdsData.length}})</span></p>
+            <div id = '{{i}}'class="border-bottom ad-list py-3 px-2 " *ngFor='let deletedAd of deletedAdsData; let i = index' (click)='showReason(ad_id)' #ad_id>
+                <img class="float-left thumbnail mr-2" src="{{deletedAd.adThumbnail}}" alt="adThumbnail"/>
+                <div class="cut-text d-inline"><p class="m-0 name-text-color d-inline">{{deletedAd.adName}}</p></div><span class="offer-time-text-color float-right font-size-11">{{deletedAd.time | date:'shortTime'}}</span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='inboxService.displayChat || inboxService.displayReason'>
+            <app-chats></app-chats>
+    </div>
+</div>
+

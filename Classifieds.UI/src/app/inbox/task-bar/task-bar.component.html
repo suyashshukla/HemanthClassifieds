@@ -1,0 +1,9 @@
+<div class="task-bar d-inline-flex flex-column ml-3 mt-4">
+    <p class="border-bottom pl-3 font-size-11 py-2 m-0">PENDING TASKS</p>
+    <ul class="list-unstyled font-size-14">
+        <li (click)="selectedOption(0)" class="task p-3" routerLink='offers' routerLinkActive='active'><a class="no-style"><img class="task-bar-icon-size" src=".\assets\icon\offer.png" alt="offers" />Offers<span class="ml-1">({{inboxService.offerDetails.length}})</span></a></li>
+        <li (click)="selectedOption(1)" class="task p-3" routerLink='reports' routerLinkActive='active'><a class="no-style"><img class="task-bar-icon-size" src=".\assets\icon\report.png" alt="reports" />Reports<span class="ml-1">({{inboxService.reportedAdDetails.length}})</span></a></li>
+        <li (click)="selectedOption(2)" class="task p-3" routerLink='ad-expired' routerLinkActive='active'><a class="no-style"><img class="task-bar-icon-size" src=".\assets\icon\expired.png" alt="ad expired" />Ad Expired<span class="ml-1">({{inboxService.expiredAdDetails.length}})</span></a></li>
+        <li (click)="selectedOption(3)" class="task p-3" routerLink='deleted-items' routerLinkActive='active'><a class="no-style"><img class="task-bar-icon-size" src=".\assets\icon\delete.jpg" alt="deleted items" />Deleted Items<span class="ml-1">({{inboxService.deletedAdDetails.length}})</span></a></li>
+    </ul>
+</div>

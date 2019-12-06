@@ -1,0 +1,25 @@
+
+.ad-list{
+    padding-top: 10px; 
+}
+.ad-list-header{
+    margin-top:20px;
+    height: 30px;
+    border: 1px solid #dee2e6 !important;
+    padding: 0px 16px;
+}
+.list-header-text{
+    font-size: 10px;
+}
+.item-title-head{
+    min-width: 365px;
+}
+
+.posted{
+    width:115px;
+}
+
+
+
+
+

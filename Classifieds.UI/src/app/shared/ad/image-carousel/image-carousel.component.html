@@ -1,0 +1,35 @@
+<div class="d-flex flex-column">
+<div class="image-preview">
+    <div class="main-image">
+    <img class="d-block image-container " src="../assets/images/{{path}}" *ngIf="path">
+    </div>
+    <div class="d-flex justify-content-between align-items-center ad-title-container w-100 px-3">
+        <div class="ad-price">
+            <span class="category-icon white-color"><i class="fas fa-rupee-sign"></i></span>
+            <span class="category-text white-color ml-1">83,700</span>
+        </div>
+    </div>
+  </div>
+<div >
+                  <!-- image slider-->
+<div id="demo" class="carousel slide bg-white" data-ride="carousel">
+  <div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev" style="color:grey">
+        <span class="carousel-control-prev-icon"><i class="fas fa-chevron-left"></i></span>
+    </a>
+  </div>
+  <div class="container carousel-inner no-padding "style="max-width:720px;border:0.1px solid #bbb">
+    <div class="carousel-item active p-2" [ngClass]="{'active': isFirst}" *ngFor="let current of totalSlides;let isFirst=first">
+      <div class="col-xs-3 col-sm-3 col-md-3 " *ngFor="let url of imagesPath | slice:current*4:4+current*4;let i=index;">
+        <img  src="../assets/images/{{url}}" (click)="show(url)">                        
+      </div>
+    </div> 
+                  <!-- Left and right controls -->
+    <div>
+            <a class="carousel-control-next" href="#demo" data-slide="next" style="color:grey">
+              <span class="carousel-control-next-icon"><i class="fas fa-chevron-right"></i></span>
+            </a>
+    </div>
+</div>
+</div>
+

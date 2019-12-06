@@ -1,0 +1,56 @@
+<a class="nav-link" (click)="goBack()">
+    <div class="d-flex align-items-center">
+        <span class="back-icon"><i class="fas fa-arrow-left"></i></span>
+        <span class="back-text">Back to List</span>
+    </div>
+</a>
+
+<div class="d-flex h-100 flex-wrap">
+    <div class="d-flex flex-column ad-container">
+        <!--Carousel Wrapper-->
+        <!-- <app-image-slider></app-image-slider> -->
+        <div class="d-flex image-carousel-container">
+        <app-image-carousel *ngIf="isDataLoaded" [imagesPath]=imageLinks [price]=ad.price></app-image-carousel>
+    </div>
+        
+    <div class="d-flex flex-column ad-details my-flex-container-column m-0 pl-2 pr-2 bg-white">
+        <div class="my-flex-item">
+            <div class="d-flex flex-row justify-content-between my-flex-container">
+                <div class="p-2 my-flex-item">
+                    <p class="product-title mb-0">{{ad.title}}</p>
+                    <div class="d-inline category icon"><span class="" aria-hidden="true"><i class="{{ad.categoryIconUri}}"></i></span></div>
+                    <div class="d-inline ml-2 category-text icon">{{ad.categoryName}}</div>
+                </div>
+                <div class="p-2 my-flex-item user-action-icons">
+                    <div class="d-inline ml-3"><span class="icon"><i class="fa fa-share-alt" aria-hidden="true"></i></span></div>
+                    <div class="d-inline ml-3">
+                        <span class="d-inline offer-icon icon"><i class="fas fa-hand-holding-usd"></i></span>
+                        <span class="d-inline ml-1 icon">{{ad.offerCount}}</span>
+                    </div>
+                    <div class="d-inline ml-3">
+                        <span class="d-inline icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        <span class="d-inline ml-1 icon">{{ad.commentCount}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 my-flex-item">
+            <p class="product-description">
+                {{ad.description}}
+            </p>
+        </div>
+    </div>
+
+
+    </div>
+
+    <div class="d-flex flex-column ">
+        <app-publisher-card [ad]=ad></app-publisher-card>
+        <app-comments></app-comments>
+        
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,6 @@
+INSERT INTO [dbo].[Category] ([id], [name], [icon], [createdOn], [description], [createdBy]) VALUES (1, N'vehicle', N'vehicle', N'2019-10-04 00:00:00', N'Ad related to vehicle', N'System defined')
+INSERT INTO [dbo].[Category] ([id], [name], [icon], [createdOn], [description], [createdBy]) VALUES (2, N'Phone', N'phone', N'2019-10-04 00:00:00', N'Ad related to Phone', N'System defined')
+INSERT INTO [dbo].[Category] ([id], [name], [icon], [createdOn], [description], [createdBy]) VALUES (3, N'Earphones', N'earphones', N'2019-10-04 00:00:00', N'Ad related to earphones', N'System defined')
+INSERT INTO [dbo].[Category] ([id], [name], [icon], [createdOn], [description], [createdBy]) VALUES (4, N'Property', N'property', N'2019-10-04 00:00:00', N'Ad related to Property', N'System defined')
+INSERT INTO [dbo].[Category] ([id], [name], [icon], [createdOn], [description], [createdBy]) VALUES (5, N'Electronics', N'electronics', N'2019-10-04 00:00:00', N'Ad related to Electronics', N'System defined')
+INSERT INTO [dbo].[Category] ([id], [name], [icon], [createdOn], [description], [createdBy]) VALUES (6, N'Shoes', N'shoes', N'2019-10-04 00:00:00', N'Ad is related to Shoes', N'System defined')

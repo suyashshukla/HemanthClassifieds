@@ -1,0 +1,44 @@
+.font-size-11{
+    font-size: 11px;
+}
+
+.thumbnail{
+    height:60px;
+    width:90px;
+}
+
+.ad-list{
+    width: 317px;
+}
+
+.name-text-color{
+    color:#332e37;
+}
+
+.offer-time-text-color{
+    color:#827d86;
+}
+
+.offers{
+    height:550px;
+    background-color: white;
+    overflow-y: auto;
+}
+.heading{
+    background-color: #f8f8f9;
+}
+.cut-text{
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    width: 100px; 
+    height: 1.2em; 
+    white-space: nowrap;
+}
+.ad-list:hover{
+    background-color: #e4dfe8;
+    cursor: pointer;
+}
+
+.active{
+    background-color: #e4dfe8;
+}

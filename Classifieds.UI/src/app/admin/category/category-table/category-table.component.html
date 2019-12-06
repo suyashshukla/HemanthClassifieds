@@ -1,0 +1,40 @@
+<div class="p-4 category-table-container border rounded">
+    <div class="d-flex flex-row align-items-center table-head">
+            <div class="col-2 border p-2">CATEGORY</div>
+            <div class="col-5 border p-2">DESCRIPTION</div>
+            <div class="col-2 border p-2">CREATED BY</div>
+            <div class="col-2 border p-2">CREATED ON</div>
+            <div class="col-1 border p-2">ACTION</div>
+    </div>
+    <div class="d-flex flex-row align-items-center" *ngFor="let row of CategoryTable">
+            <div class="col-2 border p-3">{{row.category}}</div>
+            <div class="col-5 border p-3">{{row.description}}</div>
+            <div class="col-2 border p-3">{{row.createdBy}}</div>
+            <div class="col-2 border p-3">{{row.createdOn | date}}</div>
+            <div class="col-1 border p-3 dropdown"><i class='fa fa-ellipsis-v dropdown-toggle' data-toggle="dropdown"></i>
+                <ul class="dropdown-menu">
+                  <li data-toggle="modal" data-target="#viewcategory"><a class="dropdown-item" routerLink='../edit' >View & Edit</a></li>
+                  <li data-toggle="modal" data-target="#removecategory"><a class="dropdown-item">Remove</a></li>
+                </ul>
+            </div>
+    </div>
+
+                <div id="removecategory" class="modal fade">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Confirmation</h5>
+                                        <button class="btn btn-default" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Do you want to remove this category from the list?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="no-btn btn">No</button>
+                                        <button class="ml-3 yes-btn btn">Yes</button>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+         
+</div>

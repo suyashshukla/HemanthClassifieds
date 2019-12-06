@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+.fit{
+    object-fit: cover;
+}
+
+.white-color{
+    color:white;
+}
+.nav-link{
+    padding: 0;
+    cursor: pointer;
+}
+.nav-link:hover{
+    color:white;
+    text-decoration: none;
+
+}
+.topnav.nav {
+    background-color: #fff;
+    height: 40px;
+    border-bottom: 1px solid #D4D7DC !important;
+}
+.topnav.nav li {
+    position: relative;
+    padding:14px 20px 10px 10px;
+    
+}
+.topnav.nav li.active a:after {
+    opacity: 1;
+    left: 40%;
+}
+.topnav.nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid;
+    left: 6%;
+    opacity: 0;
+    transition: 0.3s;
+    
+}
+
+.topnav.nav li:hover a{
+color: #222222;
+}
+.topnav.nav li a{
+    color: #969696;
+    font-size:11px; 
+}
+.topnav.nav li.active a{
+    color:#222222;
+    font-weight:600;
+    
+}
+.topnav.nav li a::after {
+    border-bottom-color: #e3e5e8;
+}
+.page-title h4{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight:400;
+}
+

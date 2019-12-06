@@ -1,0 +1,41 @@
+<div class="chat-container">
+    <div class="chat-display" *ngIf="inboxService.displayChat">
+        <div class="border-bottom ad-list py-3 px-2 ">
+            <img class="profile-icon float-left rounded-circle mr-2" src="./assets/icon/user-icon.png" alt="user-icon"/>
+            <p class="m-0 name-text-color d-inline">{{selectedOffer.userName}}</p>
+            <p class="m-0 pt-1 offer-time-text-color">Offered Amount: &#8377; {{selectedOffer.amount}}</p>
+        </div>
+    </div>
+    <div *ngIf="inboxService.displayChat">
+        <div class="chat" appScrolldown>
+            <div class="d-flex flex-column" *ngFor="let c of inboxService.chat">
+                    <div class="mt-4 ml-4 mr-4 mb-2">
+                        <img class="chat-profile-icon rounded-circle mr-2" src="./assets/icon/user-icon.png" alt="yamaha"/>
+                        <span>{{c.userName}}</span>
+                        <span class="offer-time-text-color pl-3">{{c.time | date:'shortTime'}}</span>
+                    </div>
+                    <div class="chat-bubble p-2 mx-4 mb-3">
+                            <p class="m-0">{{c.message}}</p>
+                    </div>
+            </div>
+        </div>
+        <div class="reply-tab">
+                <textarea class="m-2" placeholder="Reply" [(ngModel)]="message"></textarea>
+                <i class="fa fa-reply float-right" (click)="onReply()"></i>
+        </div>
+    </div>
+
+    <div class="chat-display" *ngIf="inboxService.displayReason">
+            <div class="border-bottom ad-list py-3 px-2 ">
+                <img class="profile-icon float-left rounded-circle mr-2" src="./assets/images/admin-icon.jpg" alt="admin-icon"/>
+                <p class="m-0 name-text-color d-inline">Admin</p>
+                <p class="m-0 pt-1 offer-time-text-color">Removed Ad by Admin</p>
+            </div>
+    </div>
+    <div class="p-4" *ngIf="inboxService.displayReason">
+        <h6>This Ad is removed by your Admin. Below is the reason provided by Admin</h6>
+        <q>Provided Ad is not suitable for our portal. think twice you post an AD in Classifieds Portal</q>
+    </div>
+
+    
+</div>

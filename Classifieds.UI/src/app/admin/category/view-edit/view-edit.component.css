@@ -1,0 +1,64 @@
+.modal-dialog {
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .modal-content {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .modal-header{
+      background-color:#515968;
+  }
+
+  .cross{
+      color:#9fa2a8;
+      font-size:30px;
+      font-weight: 100;
+  }
+
+  .modal-title{
+      color:white;
+  }
+
+  .btn{
+    background-color: #75608a;
+    color:white;
+    font-size:12px;
+    width:55px;
+}
+
+.save-category{
+  background-color: #f8f8f9;
+  font-weight: 500;
+}
+
+.custom-textarea{
+  resize: none;
+  overflow:hidden;
+  width:330px;
+  height:80px;
+}
+
+.table-head{
+  background-color: #f4f5f8;
+}
+
+.fa-trash{
+  color:#a4aab2;
+}
+
+.create-category-table{
+  height: auto;
+}
+
+.steel-grey{
+  color:#a4aab2;
+}
+
+.no-underline{
+  text-decoration:none;
+}

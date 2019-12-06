@@ -1,0 +1,19 @@
+<ul class="nav topnav">
+        <li  routerLinkActive="active">
+            <a class="nav-link " routerLink="">INBOX</a>
+       </li>
+</ul>
+<div class="page-container">
+    <div class="page-title">
+            <h4 class="mb-0">Inbox</h4>
+            <p class="text-secondary mb-0">Here you can manage the way you capture attendancen of your employess</p>
+    </div>
+    <div class="d-flex flex-row">
+        <div>
+            <app-task-bar></app-task-bar>
+        </div>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

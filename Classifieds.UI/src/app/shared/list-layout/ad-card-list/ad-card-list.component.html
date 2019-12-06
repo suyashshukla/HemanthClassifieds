@@ -1,0 +1,39 @@
+<a class="nav-link" routerLink="ad/{{ad.id}}">
+    <div class="ad-list-card d-flex justify-content-between">
+            <div class="item-title-head d-flex h-100  align-items-center  mr-auto">
+                <div class="ad-image">
+                 <img  src="../assets/images/{{ad.imageUrls[0].url}}" height="45px" width="80px" alt="Card image cap">
+                </div>
+                <div class="ad-details d-flex flex-column">
+                <div class="ad-title">
+                    <span class="category-icon icon"><i class="fas fa-motorcycle"></i></span>
+                    <span class="tilte-text ml-2">{{ad.title}}</span> 
+                </div>
+                <div class="ad-description">
+                <span class="ad-text">{{ad.description.substr(0,44)}}..</span>
+            </div>
+            </div>
+            </div>
+            <div class="price d-flex h-100  align-items-center mr-auto">
+                <span class=""><i class="fas fa-rupee-sign"></i></span>
+                <span class=" ml-1">{{ad.price}}</span>
+            </div>
+            <div class="posted d-flex h-100  align-items-center mr-auto">
+                 <div class="d-flex flex-column">
+                     <span class="tilte-text">{{ad.userName}}</span>
+                     <span class="ad-text">{{ad.postedOn | date}}</span>
+                 </div>
+            </div>
+            <div class="expires d-flex h-100  align-items-center mr-auto">
+                <span class="tilte-text">{{ad.expiryDate | date}}</span>
+            </div>
+            <div class="offer-count d-flex h-100  align-items-center mr-auto">
+                <span class="tilte-text">{{ad.offerCount}}</span>
+            </div>
+            <div class="comment-count d-flex h-100  align-items-center">
+                <span class="tilte-text">{{ad.commentCount}}</span>
+            </div>
+            
+        </div>
+    </a>
+    

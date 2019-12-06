@@ -1,0 +1,27 @@
+<div class="d-flex flex-column ad-layout flex-wrap  grid-view">
+    <div class="ad-list-header d-flex justify-content-between">
+        <div class="item-title-head d-flex h-100  align-items-center mr-auto">
+            <span class="list-header-text">ITEM FOR SELL</span>
+        </div>
+        <div class="price d-flex h-100  align-items-center mr-auto">
+             <span class="list-header-text">PRICE</span>
+        </div>
+        <div class="posted d-flex h-100  align-items-center mr-auto">
+             <span class="list-header-text">POSTED BY</span>
+        </div>
+        <div class="expires d-flex h-100  align-items-center mr-auto">
+            <span class="list-header-text">EXPIRES ON</span>
+        </div>
+        <div class="offer-count d-flex h-100  align-items-center mr-auto">
+            <span class="list-header-text">OFFER COUNT</span>
+        </div>
+        <div class="comment-count d-flex h-100  align-items-center">
+            <span class="list-header-text">COMMENT COUNT</span>
+        </div>
+        
+    </div>
+    <div class="ad-list" *ngFor="let ad of ads">
+        <app-ad-card-list [ad]=ad></app-ad-card-list>
+    </div>
+    
+</div>  

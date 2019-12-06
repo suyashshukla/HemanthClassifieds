@@ -1,0 +1,46 @@
+.category-table-container{
+    background-color: white;
+    min-height:500px;
+    height:auto;
+}
+
+.table-head{
+    background-color: #f4f5f8;
+}
+.fa-ellipsis-v{
+    color:#a4aab2;
+}
+.fa-ellipsis-v:hover{
+    color:#75608a;
+    cursor:pointer;
+}
+
+.dropdown-toggle::after{
+    visibility: hidden;
+}
+
+.modal-footer{
+    border:none;
+}
+
+.modal-header{
+    background-color: #f4f5f8;
+}
+
+.no-btn{
+    background-color: #a4aab2;
+    color:white;
+    width:70px;
+}
+
+.yes-btn{
+    background-color: #76618b;
+    color:white;
+    width:70px;
+}
+
+.modal{
+    position: relative;
+    top:-300px;
+    left:-50px;
+}
