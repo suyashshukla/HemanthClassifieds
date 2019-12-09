@@ -15,6 +15,10 @@ namespace Application.Core.Services
         {
             _adRepositoryService = adRepositoryService;
         }
+        public IEnumerable<AdViewDbModel> GetAllAds()
+        {
+            return _adRepositoryService.GetAds().Where(s => s.Status ==1);
+        }
         public void AddAd(AdModel adItem)
         {
             throw new NotImplementedException();

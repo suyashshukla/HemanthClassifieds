@@ -10,8 +10,8 @@ namespace Classified.Models
     public class AdViewModel
     {
         public int Id { get; set; }
-        public string Type { get; set; }
-        public string Status { get; set; }
+        public int Type { get; set; }
+        public int Status { get; set; }
         public DateTime PostedOn { get; set; }
         public bool ContactFlag { get; set; }
         public decimal Price { get; set; }

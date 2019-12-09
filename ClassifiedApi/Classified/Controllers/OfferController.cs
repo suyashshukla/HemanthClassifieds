@@ -32,7 +32,11 @@ namespace Classified.Controllers
             //return CoreCategoryService.GetCategoryById(id);
             return "nothing";
         }
-
+        [HttpGet]
+        public OfferModel GetOffferByUserIdAndAdId(int userId,int adId)
+        {
+            return _offerService.GetOfferByUserIdAndAdId(userId, adId);
+        }
         // POST: api/offer
         [HttpPost]
         public void AddOffer([FromBody]OfferModel offer)
@@ -42,6 +46,7 @@ namespace Classified.Controllers
             _offerService.AddOffer(offer);
 
         }
+        
 
         // PUT: api/offer/5
         [HttpPut]

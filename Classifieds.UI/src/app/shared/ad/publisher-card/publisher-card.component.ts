@@ -16,10 +16,10 @@ export class PublisherCardComponent implements OnInit {
   @ViewChild('closeBtn1',{static:false}) closeBtn1: ElementRef;
   @ViewChild('closeBtn2',{static:false}) closeBtn2: ElementRef;
   @Input() ad: AdInfo;
-  publisher: Publisher;
+  publisher: Publisher=new Publisher();
   reportAd: ReportAd;
-  offerAd: OfferAd;
-  
+  offerAd: OfferAd =new OfferAd();
+  userId:number =4;
   constructor(private classifiedService: ClassifiedService, private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -39,25 +39,31 @@ private closeOfferModal(): void {
   onSubmitReport(reportForm: NgForm) {
     this.reportAd = new ReportAd();
     this.reportAd.adId = this.ad.id;
-    this.reportAd.userId = this.ad.userId;
+    this.reportAd.userId = this.userId;
     this.reportAd.message = 'ReportCategory: ' + reportForm.value.reportCategory + ' and ' + reportForm.value.message;
     this.reportAd.madeon = new Date();
-    console.log(this.reportAd);
+    this.classifiedService.reportAd(this.reportAd).subscribe();
     this.toastr.info('Reported Succesfully');
     this.closeReportModal();
 
   }
-  onOfferReport(offerForm: NgForm) {
-    this.offerAd = new OfferAd();
+  onSubmitOffer(offerForm: NgForm) {
     this.offerAd.price = offerForm.value.offerPrice;
     this.offerAd.message = offerForm.value.message;
     this.offerAd.adId = this.ad.id;
-    this.offerAd.userId = this.ad.userId;
+    this.offerAd.userId = this.userId;
     this.offerAd.madeon = new Date();
-    console.log(this.offerAd);
+    this.classifiedService.makeOffer(this.offerAd).subscribe();
+    this.toastr.info('Offer Made Succesfully');
     this.closeOfferModal();
-
-
   }
   
+  // checkOffer(offerForm: NgForm) {
+  //   this.classifiedService.checkOffer(this.userId,this.ad.id).subscribe(offer => this.offerAd = offer);
+  //   if (this.offerAd == null) {
+  //    this.updateFlag = false;
+  //   }
+	// checkOffer(userId: number, adId:  number): Observable<OfferAd>{
+  //     return this.http.get<OfferAd>(this.rootUrl + 'offer/?userId=' + userId + '&adId =' + adId);
+  // }
 }

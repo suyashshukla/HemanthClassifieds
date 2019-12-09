@@ -23,7 +23,7 @@ namespace Classified.Models
         public string CategoryName { get; set; }
         public string RemovedReason { get; set; }
         public int RemovedBy { get; set; }
-        public DateTime RemovedOn { get; set; }
+        public DateTime? RemovedOn { get; set; }
         public int OfferCount { get; set; }
         public int CommentCount { get; set; }
         public string Title { get; set; }

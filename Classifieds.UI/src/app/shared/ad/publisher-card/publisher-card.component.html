@@ -3,11 +3,11 @@
     <div class="publisher-container  d-flex flex-column">
         <div class="d-flex publisher-header justify-content-between">
             <span class="header-text header-color">Published By</span>
-            <span class="date-text header-color">18 Apr, 2019</span>
+            <span class="date-text header-color">{{ad.expiryDate | date}}</span>
         </div>
         <div class=" d-flex align-items-center user-header mt-4">
             <div class="ad-user-icon">
-                <img class="rounded-circle" src="{{publisher.icon}}" width="25" height="25">
+                <img class="rounded-circle" src="../assets/icon/{{publisher.icon}}" width="25" height="25">
             </div>
             <div class="ad-user-name ml-2 ">
                 <span class="profile-name">{{publisher.name}}</span>
@@ -49,7 +49,7 @@
         </div>
         <div class="d-flex justify-content-end button-container">
             <button type="button" class="btn btn-outline-primary mr-3 btn1" data-toggle="modal" data-target="#reportModal">Report</button>
-            <button type="button" class="btn btn-primary btn1" data-toggle="modal" data-target="#offerModal">Make an Offer</button>
+            <button type="button" class="btn btn-primary btn1" data-toggle="modal" data-target="#offerModal" >Make an Offer</button>
         </div>
         <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -99,7 +99,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                            <form id="offerForm" (ngSubmit)="onOfferReport(offerform)" #offerform="ngForm">
+                            <form id="offerForm" (ngSubmit)="onSubmitOffer(offerform)" #offerform="ngForm">
                                  <div class="form-row">            
                                         <div class="form-group col-md-6">
                                           <label for="selling-amt" class="col-form-label text">Selling Amount</label>

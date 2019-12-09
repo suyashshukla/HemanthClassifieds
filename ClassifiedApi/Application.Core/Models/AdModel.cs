@@ -23,6 +23,6 @@ namespace Application.Core.Models
         public int CommentCount { get; set; }
         public string RemovedReason { get; set; }
          public int RemovedBy { get; set; }
-         public DateTime RemovedOn { get; set; }
+         public DateTime? RemovedOn { get; set; }
     }
 }

@@ -21,17 +21,18 @@ namespace Application.Infrastructure.Services
         }
         public void AddNewOffer(OfferModel offer)
         {
-           
             var Offer = _mapper.Map<OfferModel, Offer>(offer);
+            
             _db.Insert(Offer);
             var id = Offer.AdId;
             //var offer_count = db.Query<AdDetail>("select AdId, Offer_Count from AdDetails where AdDetails.AdId = Offer.AdId");
-            var count = _db.SingleOrDefault<AdModel>("Select * from Ad where Id = @0", id);
+            var count = _db.SingleOrDefault<Ad>("Select * from Ad where Id = @0", id);
             count.OfferCount = count.OfferCount + 1;
-
-            _db.Update("Ad", "Id", count);
+            
+            _db.Update(count);
  
         }
+
 
         public void DeleteOfferbyId(int id)
         {
@@ -45,7 +46,11 @@ namespace Application.Infrastructure.Services
             return _mapper.Map<IEnumerable<Offer>,IEnumerable<OfferModel>>(offers);
 
         }
-
+        public OfferModel GetOfferByUserIdAndAdId(int userId, int adId)
+        {
+           var offer = _db.SingleOrDefault<Offer>("select * from offer where adId=@0 and userId=@1", adId,userId);
+            return _mapper.Map<Offer, OfferModel>(offer);
+        }
         public OfferModel GetSpecificOfferById(int id)
         {
             

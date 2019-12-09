@@ -9,8 +9,8 @@ namespace Application.Core.Interfaces
 {
     public interface IOfferRepository
     {
-        
 
+        OfferModel GetOfferByUserIdAndAdId(int userId, int adId);
        void AddNewOffer(OfferModel offer);
         IEnumerable<OfferModel> GetAllOffersMade();
         OfferModel GetSpecificOfferById(int id);

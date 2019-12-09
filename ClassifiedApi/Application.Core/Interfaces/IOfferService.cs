@@ -9,8 +9,9 @@ namespace Application.Core.Interfaces
 {
     public interface IOfferService
     {
+        OfferModel GetOfferByUserIdAndAdId(int userId, int adId);
         IEnumerable<OfferModel> GetAllOffers();
         OfferModel GetOfferById(int id);
-        void AddOffer(OfferModel report);
+        void AddOffer(OfferModel offer);
     }
 }

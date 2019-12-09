@@ -5,4 +5,8 @@ export class Publisher {
     phone: number;
     mail: string;
     location: string;
+
+    constructor(){
+        this.icon = 'user-icon.png';
+    }
 }

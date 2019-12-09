@@ -12,7 +12,6 @@ export class AdCardGridComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.ad.userName);
   }
   
 }

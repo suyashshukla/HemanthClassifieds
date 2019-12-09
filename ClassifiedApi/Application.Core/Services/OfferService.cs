@@ -17,12 +17,15 @@ namespace Application.Core.Services
             _offer = offer;
         }
 
-        public void AddOffer(OfferModel offers)
+        public void AddOffer(OfferModel offer)
         {
-            _offer.AddNewOffer(offers);
+            _offer.AddNewOffer(offer);
 
         }
-
+        public OfferModel GetOfferByUserIdAndAdId(int userId,int adId)
+        {
+           return _offer.GetOfferByUserIdAndAdId(userId, adId);
+        }
         public IEnumerable<OfferModel> GetAllOffers()
         {
             return _offer.GetAllOffersMade();
