@@ -10,7 +10,7 @@ import { ListLayoutComponent } from './list-layout/list-layout.component';
 import { AdCardGridComponent } from './grid-layout/ad-card-grid/ad-card-grid.component';
 import { AdCardListComponent } from './list-layout/ad-card-list/ad-card-list.component';
 import { RouterModule } from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import { ImageCarouselComponent } from './ad/image-carousel/image-carousel.component';
 @NgModule({
     declarations: [
@@ -29,7 +29,7 @@ import { ImageCarouselComponent } from './ad/image-carousel/image-carousel.compo
     ],
     imports: [CommonModule,
         RouterModule,
-    FormsModule],
+        ReactiveFormsModule],
     exports: [
         FilterBarComponent,
         CommonModule,
@@ -42,7 +42,7 @@ import { ImageCarouselComponent } from './ad/image-carousel/image-carousel.compo
         AdCardGridComponent,
         AdCardListComponent,
         ImageSliderComponent,
-        FormsModule
+        ReactiveFormsModule
     ],
 })
 export class SharedModule { }

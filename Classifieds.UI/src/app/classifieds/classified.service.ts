@@ -35,9 +35,12 @@ export class ClassifiedService {
   updateStatus(id: number): void{
        //pass
   }
-  checkOffer(userId: number, adId:  number): Observable<OfferAd>{
+  checkOffer(userId: number, adId: number): Observable<OfferAd>{
       return this.http.get<OfferAd>(this.rootUrl + 'offer/?userId=' + userId + '&adId =' + adId);
   }
+  checkReport(userId: number, adId: number): Observable<ReportAd>{
+    return this.http.get<ReportAd>(this.rootUrl + 'report/?userId=' + userId + '&adId =' + adId);
+}
   makeOffer(offerAd: OfferAd): Observable<OfferAd> {
     return this.http.post<OfferAd>(this.rootUrl + 'offer', offerAd);
   }

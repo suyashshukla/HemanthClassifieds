@@ -1,129 +1,133 @@
 
 
-    <div class="publisher-container  d-flex flex-column">
-        <div class="d-flex publisher-header justify-content-between">
-            <span class="header-text header-color">Published By</span>
-            <span class="date-text header-color">{{ad.expiryDate | date}}</span>
-        </div>
-        <div class=" d-flex align-items-center user-header mt-4">
-            <div class="ad-user-icon">
-                <img class="rounded-circle" src="../assets/icon/{{publisher.icon}}" width="25" height="25">
-            </div>
-            <div class="ad-user-name ml-2 ">
-                <span class="profile-name">{{publisher.name}}</span>
-            </div>
-        </div>
-        <div class="user-details">
-            <div class=" d-flex align-items-center user-header mt-3">
-                <div class="ml-1">
-                    <span><i class="fas fa-map-marker-alt"></i></span>
-                </div>
-                <div class="ad-user-name ml-3">
-                    <span class="text-color">{{publisher.location}}</span>
-                </div>
-            </div>
-            <div class=" d-flex align-items-center user-header mt-3">
-                <div class="ml-1">
-                    <span><i class="fas fa-envelope"></i></span>
-                </div>
-                <div class="ad-user-name ml-3">
-                    <span class="text-color">{{publisher.mail}}</span>
-                </div>
-            </div>
-            <div class=" d-flex align-items-center user-header mt-2">
-                <div class="ml-1">
-                    <span><i class="fas fa-phone-alt"></i></span>
-                </div>
-                <div class="ad-user-name ml-3">
-                    <span class="text-color" *ngIf="ad.contactFlag==true">{{publisher.phone}}</span>
-                </div>
-            </div>
-            <div class=" d-flex align-items-center user-header mt-2">
-                <div class="ml-1">
-                    <span><i class="fas fa-clock"></i></span>
-                </div>
-                <div class="ad-user-name ml-3">
-                    <span class="text-color">Ad Expires in next 30 days</span>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-end button-container">
-            <button type="button" class="btn btn-outline-primary mr-3 btn1" data-toggle="modal" data-target="#reportModal">Report</button>
-            <button type="button" class="btn btn-primary btn1" data-toggle="modal" data-target="#offerModal" >Make an Offer</button>
-        </div>
-        <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="reportModalLongTitle">Report</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span><i class="fa fa-times"></i></span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                    <form id="reportForm" (ngSubmit)="onSubmitReport(reportform)" #reportform="ngForm">
-                    <div class="form-row">            
-                        <div class="form-group col-md-6">
-                          <label for="report-category" class="col-form-label text">Report Category</label>
-                          <select class="form-control" id="report-category" name="reportCategory" ngModel #reportCategory="ngModel" required>
-                            <option value="" selected disabled hidden>Select</option>
-                            <option value="fraud">Fraud</option>
-                            <option value="censored">Censored</option>
-                            <option value="other">Other</option>
-                          </select>
-                          <span class="help-block" *ngIf="!reportCategory.valid && reportCategory.touched" style="color:red">Please select a value</span>
-                        </div>
-                    </div>
-                        <div class="form-group">
-                          <label for="message" class="col-form-label text">Description</label>
-                          <textarea class="form-control" id="message" name="message" placeholder="Describe the report here..." ngModel #message="ngModel"required></textarea>
-                          <span class="help-block" *ngIf="!message.valid && message.touched" style="color:red">Please enter report message...</span>
-                        </div>
-                       
-                      </form>
-                </div>
-                <div class="modal-footer mb-2">
-                  <button type="button" class="no-btn btn btn1" data-dismiss="modal" #closeBtn1>Cancel</button>
-                  <button type="submit" class="ml-3 yes-btn btn btn1"  form="reportForm" [disabled]="!reportform.valid">Report</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal fade" id="offerModal" tabindex="-1" role="dialog" aria-labelledby="offerModalTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="offerModalLongTitle">Make an Offer</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                            <form id="offerForm" (ngSubmit)="onSubmitOffer(offerform)" #offerform="ngForm">
-                                 <div class="form-row">            
-                                        <div class="form-group col-md-6">
-                                          <label for="selling-amt" class="col-form-label text">Selling Amount</label>
-                                          <input type="text" class="form-control" id="selling-amt"  name="sellingAmt" value="{{ad.price}}" readonly>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                                <label for="Offer-amt" class="col-form-label text">Offer Amount</label>
-                                                <input type="number" class="form-control" id="offer-amt" name="offerPrice" #offerPrice="ngModel" ngModel required>
-                                                <span class="help-block" *ngIf="!offerPrice.valid && offerPrice.touched" style="color:red">Please enter offer price</span>
-                                              </div>
-                                        
-                                    </div>
-                                        <div class="form-group">
-                                          <label for="message-text" class="col-form-label text">Message</label>
-                                          <textarea class="form-control" id="message-text" name="message" placeholder="provide your mesage..." ngModel #message="ngModel" required></textarea>
-                                          <span class="help-block" *ngIf="!message.valid && message.touched" style="color:red">Please enter offer message...</span>
-                                        </div>
-                                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn no-btn btn1" data-dismiss="modal" #closeBtn2>Cancel</button>
-                      <button type="submit" class="btn yes-btn btn1" form="offerForm" [disabled]="!offerform.valid">Offer</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<div class="publisher-container  d-flex flex-column">
+  <div class="d-flex publisher-header justify-content-between">
+    <span class="header-text header-color">Published By</span>
+    <span class="date-text header-color">{{ad.expiryDate | date}}</span>
+  </div>
+  <div class=" d-flex align-items-center user-header mt-4">
+    <div class="ad-user-icon">
+      <img class="rounded-circle" src="../assets/icon/{{publisher.icon}}" width="25" height="25">
     </div>
+    <div class="ad-user-name ml-2 ">
+      <span class="profile-name">{{publisher.name}}</span>
+    </div>
+  </div>
+  <div class="user-details">
+    <div class=" d-flex align-items-center user-header mt-3">
+      <div class="ml-1">
+        <span><i class="fas fa-map-marker-alt"></i></span>
+      </div>
+      <div class="ad-user-name ml-3">
+        <span class="text-color">{{publisher.location}}</span>
+      </div>
+    </div>
+    <div class=" d-flex align-items-center user-header mt-3">
+      <div class="ml-1">
+        <span><i class="fas fa-envelope"></i></span>
+      </div>
+      <div class="ad-user-name ml-3">
+        <span class="text-color">{{publisher.mail}}</span>
+      </div>
+    </div>
+    <div class=" d-flex align-items-center user-header mt-2">
+      <div class="ml-1">
+        <span><i class="fas fa-phone-alt"></i></span>
+      </div>
+      <div class="ad-user-name ml-3">
+        <span class="text-color" *ngIf="ad.contactFlag==true">{{publisher.phone}}</span>
+      </div>
+    </div>
+    <div class=" d-flex align-items-center user-header mt-2">
+      <div class="ml-1">
+        <span><i class="fas fa-clock"></i></span>
+      </div>
+      <div class="ad-user-name ml-3">
+        <span class="text-color">Ad Expires in next 30 days</span>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end button-container">
+    <button type="button" class="btn btn-outline-primary mr-3 btn1" data-toggle="modal" data-target="#reportModal">Report</button>
+    <button type="button" class="btn btn-primary btn1" data-toggle="modal" data-target="#offerModal">Make an Offer</button>
+  </div>
+  <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reportModalLongTitle">Report</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span><i class="fa fa-times"></i></span>
+          </button>
+        </div>
+        <div *ngIf="reportForm">
+        <div class="modal-body" >
+          <form [formGroup]="reportForm" >
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="report-category" class="col-form-label text">Report Category</label>
+                <select class="form-control" id="report-category" name="reportCategory" formControlName="reportCategory">
+                  <option value="select" disabled hidden>Select</option>
+                  <option value="fraud">Fraud</option>
+                  <option value="censored">Censored</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="help-block" *ngIf="!reportForm.get('reportCategory').valid && reportForm.get('reportCategory').touched" style="color:red">Please select a value</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-form-label text">Description</label>
+              <textarea class="form-control" id="message" name="message" placeholder="Describe the report here..."></textarea>
+              <span class="help-block" *ngIf="!reportForm.get('message').valid && reportForm.get('message').touched" style="color:red">Please enter report message...</span>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer mb-2">
+          <button type="button" class="no-btn btn btn1" data-dismiss="modal" #closeBtn1>Cancel</button>
+          <button type="submit" class="ml-3 yes-btn btn btn1" (click)="saveReport()" [disabled]="!reportForm.valid">Report</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="offerModal" tabindex="-1" role="dialog" aria-labelledby="offerModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="offerModalLongTitle">Make an Offer</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div *ngIf="offerForm" >
+        <div class="modal-body" >
+          <form [formGroup]="offerForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="selling-amt" class="col-form-label text">Selling Amount</label>
+                <input type="text" class="form-control" id="selling-amt" name="sellingAmt" value="{{ad.price}}" readonly>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="Offer-amt" class="col-form-label text">Offer Amount</label>
+                <input type="number" class="form-control" id="offer-amt" name="offerPrice" formControlName="offerPrice">
+                <span class="help-block" *ngIf="!offerForm.get('offerPrice').valid && offerForm.get('offerPrice').touched  " style="color:red">Please enter offer price</span>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label text">Message</label>
+              <textarea class="form-control" id="message-text" name="message" placeholder="provide your mesage..." formControlName="message"></textarea>
+              <span class="help-block" *ngIf="!offerForm.get('message').valid &&offerForm.get('message').touched  " style="color:red">Please enter offer message...</span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn no-btn btn1" data-dismiss="modal" #closeBtn2>Cancel</button>
+          <button type="submit" class="btn yes-btn btn1" (click)="updateFlag==false?saveOffer():updateOffer()" [disabled]="!offerForm.valid">Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
