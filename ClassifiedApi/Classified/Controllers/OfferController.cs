@@ -24,7 +24,7 @@ namespace Classified.Controllers
         [HttpGet]
         public IEnumerable<string> GetAllOffers()
         {
-            return new string[] { "value1", "value2" }; ;
+            return new string[] { "value", "value2" }; ;
         }
 
         // GET: api/offer/5
@@ -46,19 +46,18 @@ namespace Classified.Controllers
         [HttpPost]
         public void AddOffer([FromBody]OfferModel offer)
         {
-
-            
             _offerService.AddOffer(offer);
 
         }
 
 
         // PUT: api/offer/5
-        [Route("{id:int}")]
+        [Route("{id}")]
         [HttpPut]
-        public void UpdateOffer(int id, [FromBody]OfferModel value)
+        public void UpdateOffer(int id, [FromBody]OfferModel offer)
         {
             //CoreCategoryService.EditCategory(value);
+            _offerService.UpdateOffer(id, offer);
         }
 
         [Route("{id:int}")]

@@ -12,5 +12,7 @@ namespace Application.Core.Interfaces
         IEnumerable<ReportModel> GetAllReports();
         ReportModel GetReportById(int id);
         void AddReport(ReportModel report);
+        ReportModel GetReportByUserIdAndAdId(int userId, int adId);
+        void UpdateReport(int id, ReportModel report);
     }
 }

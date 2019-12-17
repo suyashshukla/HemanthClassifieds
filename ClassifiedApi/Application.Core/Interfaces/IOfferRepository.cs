@@ -14,7 +14,7 @@ namespace Application.Core.Interfaces
        void AddNewOffer(OfferModel offer);
         IEnumerable<OfferModel> GetAllOffersMade();
         OfferModel GetSpecificOfferById(int id);
-        void UpdateOffer();
+        void UpdateOffer(int id,OfferModel offer);
         void DeleteOfferbyId(int id);
 
     }

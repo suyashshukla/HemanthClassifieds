@@ -43,7 +43,7 @@
         <span><i class="fas fa-clock"></i></span>
       </div>
       <div class="ad-user-name ml-3">
-        <span class="text-color">Ad Expires in next 30 days</span>
+        <span class="text-color">Ad Expires in next {{expiryDays}} days</span>
       </div>
     </div>
   </div>
@@ -77,7 +77,7 @@
             </div>
             <div class="form-group">
               <label for="message" class="col-form-label text">Description</label>
-              <textarea class="form-control" id="message" name="message" placeholder="Describe the report here..."></textarea>
+              <textarea class="form-control" id="message" name="message" placeholder="Describe the report here..." formControlName="message"></textarea>
               <span class="help-block" *ngIf="!reportForm.get('message').valid && reportForm.get('message').touched" style="color:red">Please enter report message...</span>
             </div>
 
@@ -85,7 +85,8 @@
         </div>
         <div class="modal-footer mb-2">
           <button type="button" class="no-btn btn btn1" data-dismiss="modal" #closeBtn1>Cancel</button>
-          <button type="submit" class="ml-3 yes-btn btn btn1" (click)="saveReport()" [disabled]="!reportForm.valid">Report</button>
+          <button type="submit" class="btn yes-btn btn1" *ngIf="updateReportFlag==false" (click)="saveReport()" [disabled]="!reportForm.dirty">Report</button>
+          <button type="submit" class="btn yes-btn btn1" *ngIf="updateReportFlag==true" (click)="updateReport()" [disabled]="!reportForm.dirty">Update</button>
         </div>
       </div>
       </div>
@@ -124,7 +125,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn no-btn btn1" data-dismiss="modal" #closeBtn2>Cancel</button>
-          <button type="submit" class="btn yes-btn btn1" (click)="updateFlag==false?saveOffer():updateOffer()" [disabled]="!offerForm.valid">Offer</button>
+          <button type="submit" class="btn yes-btn btn1" *ngIf="updateOfferFlag==false" (click)="saveOffer()" [disabled]="!offerForm.dirty">Offer</button>
+          <button type="submit" class="btn yes-btn btn1" *ngIf="updateOfferFlag==true" (click)="updateOffer()" [disabled]="!offerForm.dirty">Update</button>
           </div>
         </div>
       </div>

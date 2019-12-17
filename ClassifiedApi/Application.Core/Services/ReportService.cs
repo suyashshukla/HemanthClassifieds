@@ -30,5 +30,13 @@ namespace Application.Core.Services
         {
             return _report.GetSpecificReportById(id);
         }
+        public  void UpdateReport(int id, ReportModel report)
+        {
+            _report.UpdateReport(id, report);
+        }
+        public ReportModel GetReportByUserIdAndAdId(int userId, int adId)
+        {
+            return _report.GetReportByUserIdAndAdId(userId, adId);
+        }
     }
 }

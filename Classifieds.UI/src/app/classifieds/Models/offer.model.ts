@@ -1,4 +1,5 @@
 export class OfferAd {
+    id: number;
     userId: number;
     adId: number;
     message: string;

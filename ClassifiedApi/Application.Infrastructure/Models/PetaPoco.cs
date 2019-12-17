@@ -1636,7 +1636,7 @@ namespace PetaPoco
             catch (Exception x)
             {
                 if (OnException(x))
-                    throw;
+                        throw;
                 return -1;
             }
         }

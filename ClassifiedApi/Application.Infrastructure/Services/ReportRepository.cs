@@ -39,10 +39,16 @@ namespace Application.Infrastructure.Services
             var ReportId = _db.SingleOrDefault<ReportedAd>("select * from ReportAd where id=@0", id);
             return _mapper.Map<ReportedAd, ReportModel>(ReportId);
         }
-
-        public void UpdateReport()
+        public ReportModel GetReportByUserIdAndAdId(int userId, int adId)
         {
-            throw new System.NotImplementedException();
+            var report = _db.SingleOrDefault<ReportedAd>("select * from reportedad where adId=@0 and userId=@1", adId, userId);
+            return _mapper.Map<ReportedAd, ReportModel>(report);
+        }
+
+        public void UpdateReport(int id, ReportModel report)
+        {
+            var _report = _mapper.Map<ReportModel, ReportedAd>(report);
+            _db.Update(_report);
         }
     }
 }

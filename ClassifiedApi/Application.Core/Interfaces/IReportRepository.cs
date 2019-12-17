@@ -14,8 +14,9 @@ namespace Application.Core.Interfaces
         void AddNewReport(ReportModel offer);
         IEnumerable<ReportModel> GetAllReportsMade();
         ReportModel GetSpecificReportById(int id);
-        void UpdateReport();
+        void UpdateReport(int id, ReportModel report);
         void DeleteReportbyId(int id);
+        ReportModel GetReportByUserIdAndAdId(int userId, int adId);
 
     }
 }

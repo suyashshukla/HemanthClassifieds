@@ -33,6 +33,11 @@ namespace Classified.Controllers
             return "nothing";
         }
 
+        [HttpGet]
+        public ReportModel GetOffferByUserIdAndAdId([FromUri] int userId, [FromUri] int adId)
+        {
+            return _reportService.GetReportByUserIdAndAdId(userId, adId);
+        }
         // POST: api/report
         [HttpPost]
         public void AddReport([FromBody]ReportModel report)
@@ -45,9 +50,9 @@ namespace Classified.Controllers
 
         // PUT: api/report/5
         [HttpPut]
-        public void UpdateReport(int id, [FromBody]ReportModel value)
+        public void UpdateReport(int id, [FromBody]ReportModel report)
         {
-            //CoreCategoryService.EditCategory(value);
+            _reportService.UpdateReport(id, report);
         }
 
         [HttpDelete]

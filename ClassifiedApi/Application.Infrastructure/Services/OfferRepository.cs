@@ -46,11 +46,13 @@ namespace Application.Infrastructure.Services
             return _mapper.Map<IEnumerable<Offer>,IEnumerable<OfferModel>>(offers);
 
         }
+
         public OfferModel GetOfferByUserIdAndAdId(int userId, int adId)
         {
            var offer = _db.SingleOrDefault<Offer>("select * from offer where adId=@0 and userId=@1", adId,userId);
             return _mapper.Map<Offer, OfferModel>(offer);
         }
+
         public OfferModel GetSpecificOfferById(int id)
         {
             
@@ -58,9 +60,10 @@ namespace Application.Infrastructure.Services
             return _mapper.Map<Offer, OfferModel>(offerId);
         }
 
-        public void UpdateOffer()
+        public void UpdateOffer(int id,OfferModel offer)
         {
-            throw new NotImplementedException();
+            var _offer = _mapper.Map<OfferModel, Offer>(offer);
+            _db.Update(_offer);
         }
     }
 }

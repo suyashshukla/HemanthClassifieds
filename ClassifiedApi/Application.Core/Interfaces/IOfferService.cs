@@ -13,5 +13,6 @@ namespace Application.Core.Interfaces
         IEnumerable<OfferModel> GetAllOffers();
         OfferModel GetOfferById(int id);
         void AddOffer(OfferModel offer);
+        void UpdateOffer(int id, OfferModel offer);
     }
 }

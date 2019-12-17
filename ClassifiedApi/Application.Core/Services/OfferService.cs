@@ -35,5 +35,9 @@ namespace Application.Core.Services
         {
             return _offer.GetSpecificOfferById(id);
         }
+        public void UpdateOffer(int id,OfferModel offer)
+        {
+            _offer.UpdateOffer(id,offer);
+        }
     }
 }
