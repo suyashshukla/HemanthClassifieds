@@ -36,11 +36,10 @@ namespace Classified.Controllers
 
         // POST: api/ad
         [HttpPost]
-        public void AddAd([FromBody]AdInfoModel ad)
+        public void AddAd([FromBody]AdModel ad)
         {
 
-            //System.Diagnostics.Debug.WriteLine(category.Id);
-            // CoreCategoryService.AddCategory(category);
+            _coreAdService.AddAd(ad);
 
         }
 

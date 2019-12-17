@@ -21,7 +21,7 @@ namespace Application.Core.Services
         }
         public void AddAd(AdModel adItem)
         {
-            throw new NotImplementedException();
+            _adRepositoryService.AddNewAd(adItem);
         }
 
         public void DeleteAd(int id)

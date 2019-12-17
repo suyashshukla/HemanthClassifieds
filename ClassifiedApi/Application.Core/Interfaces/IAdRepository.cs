@@ -12,8 +12,8 @@ namespace Application.Core.Interfaces
     {
         IEnumerable<AdViewDbModel> GetAds();
         AdInfoModel GetAd(int id);
-        void AddNewAd(AdInfoModel ad);
-        void EditAdbyId(AdInfoModel ad);
+        void AddNewAd(AdModel ad);
+        void EditAdbyId(AdModel ad);
         void DeleteAdybyId(int id);
     }
 }

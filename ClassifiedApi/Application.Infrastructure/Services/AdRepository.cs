@@ -21,9 +21,10 @@ namespace Application.Infrastructure.Services
             _mapper = mapper;
             _db = db;
         }
-        public void AddNewAd(AdInfoModel ad)
+        public void AddNewAd(AdModel ad)
         {
-            throw new NotImplementedException();
+            var newAd = _mapper.Map<AdModel, Ad>(ad);
+            _db.Insert(newAd);
         }
 
         public void DeleteAdybyId(int id)
@@ -31,9 +32,10 @@ namespace Application.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public void EditAdbyId(AdInfoModel ad)
+        public void EditAdbyId(AdModel ad)
         {
-            throw new NotImplementedException();
+            var updatedAd = _mapper.Map<AdModel, Ad>(ad);
+            _db.Update(ad);
         }
 
         public AdInfoModel GetAd(int id)
