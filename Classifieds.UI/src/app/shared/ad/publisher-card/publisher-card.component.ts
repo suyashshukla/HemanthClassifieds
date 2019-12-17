@@ -36,7 +36,7 @@ export class PublisherCardComponent implements OnInit {
   }
   calculateExpiryDays(): void{
     var d1 = new Date(this.ad.expiryDate);
-    var d2 = new Date(this.ad.postedOn);
+    var d2 = new Date();
     var diff = Math.abs(d1.getTime() - d2.getTime());
     this.expiryDays = Math.ceil(diff / (1000 * 3600 * 24))
   }

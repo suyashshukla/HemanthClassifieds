@@ -9,8 +9,7 @@ namespace Application.Core.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public int CategoryId { get; set; }
-         public int Type { get; set; }
-        public int Status { get; set; }
+         public int Type { get; set; }  
          public DateTime PostedOn { get; set; }
          public bool ContactFlag { get; set; }
         public string Title { get; set; }

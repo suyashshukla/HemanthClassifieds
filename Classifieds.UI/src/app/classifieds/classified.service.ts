@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Ad } from 'src/app/classifieds/Models/ad.model';
-// import { Ads } from 'src/app/classifieds/Models/Ads';
 import { AdInfo } from './Models/adinfo.model';
 import { Publisher } from './Models/publisher.model';
 import { HttpClient } from '@angular/common/http';
@@ -19,8 +18,6 @@ export class ClassifiedService {
 
   getAds(): Observable<Ad[]> {
    return  this.http.get<Ad[]>(this.rootUrl + 'ad');
-  // console.log(new Date());
-  // return of(Ads);
   }
    
   getAd(id): Observable<AdInfo>{
@@ -30,10 +27,6 @@ export class ClassifiedService {
   getUser(id: number): Observable<Publisher>{
       return this.http.get<Publisher>(this.rootUrl + 'user/' + id);
   
-  }
-  
-  updateStatus(id: number): void{
-       //pass
   }
   updateOffer(id: number, offer: OfferAd): Observable<OfferAd>{
     return this.http.put<OfferAd>(this.rootUrl + 'offer/' + id, offer);

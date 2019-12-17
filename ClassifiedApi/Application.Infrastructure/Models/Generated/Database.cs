@@ -115,7 +115,6 @@ namespace AppConnection
 		[Column] public int UserId { get; set; }
 		[Column] public int CategoryId { get; set; }
 		[Column] public int Type { get; set; }
-		[Column] public int Status { get; set; }
 		[Column] public DateTime PostedOn { get; set; }
 		[Column] public bool ContactFlag { get; set; }
 		[Column] public string Title { get; set; }
@@ -192,6 +191,18 @@ namespace AppConnection
 		[Column] public string RoleId { get; set; }
 	}
     
+	[TableName("dbo.sysdiagrams")]
+	[PrimaryKey("diagram_id")]
+	[ExplicitColumns]
+    public partial class sysdiagram : AppConnectionDB.Record<sysdiagram>  
+    {
+		[Column] public string name { get; set; }
+		[Column] public int principal_id { get; set; }
+		[Column] public int diagram_id { get; set; }
+		[Column] public int? version { get; set; }
+		[Column] public byte[] definition { get; set; }
+	}
+    
 	[TableName("dbo.UserRole")]
 	[ExplicitColumns]
     public partial class UserRole : AppConnectionDB.Record<UserRole>  
@@ -208,7 +219,6 @@ namespace AppConnection
 		[Column] public int UserId { get; set; }
 		[Column] public int CategoryId { get; set; }
 		[Column] public int Type { get; set; }
-		[Column] public int Status { get; set; }
 		[Column] public DateTime PostedOn { get; set; }
 		[Column] public bool ContactFlag { get; set; }
 		[Column] public string Title { get; set; }
@@ -224,6 +234,7 @@ namespace AppConnection
 		[Column] public DateTime? RemovedOn { get; set; }
 		[Column] public string CategoryName { get; set; }
 		[Column] public string CategoryIconUri { get; set; }
+		[Column] public int Status { get; set; }
 	}
     
 	[TableName("dbo.AdView")]
@@ -232,7 +243,6 @@ namespace AppConnection
     {
 		[Column] public int Id { get; set; }
 		[Column] public int Type { get; set; }
-		[Column] public int Status { get; set; }
 		[Column] public DateTime PostedOn { get; set; }
 		[Column] public string Title { get; set; }
 		[Column] public string Description { get; set; }
@@ -246,5 +256,6 @@ namespace AppConnection
 		[Column] public string UserIconUri { get; set; }
 		[Column] public string UserName { get; set; }
 		[Column] public string Location { get; set; }
+		[Column] public int Status { get; set; }
 	}
 }

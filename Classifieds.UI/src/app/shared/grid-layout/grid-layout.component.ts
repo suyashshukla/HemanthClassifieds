@@ -19,20 +19,5 @@ export class GridLayoutComponent implements OnInit {
     this.classifiedService.getAds()
         .subscribe(ads => this.ads = ads);
   }
-  checkStatus(ad:Ad) : boolean{
-    if(ad.status==1){
-    var d=new Date('2019-12-06').getDate();
-    if(d<=0){
-      this.classifiedService.updateStatus(ad.id);
-      return false;
-    }
-    else{
-      return true;
-    }
-  }
-  else{
-    return false;
-  }
-  }
 
 }
