@@ -1,89 +1,4 @@
-USE [master]
-GO
-/****** Object:  Database [Classified]    Script Date: 28-Mar-20 11:17:49 PM ******/
-CREATE DATABASE [Classified]
- CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'Classified', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.SQLH\MSSQL\DATA\Classified.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
- LOG ON 
-( NAME = N'Classified_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.SQLH\MSSQL\DATA\Classified_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
-GO
-ALTER DATABASE [Classified] SET COMPATIBILITY_LEVEL = 140
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [Classified].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [Classified] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [Classified] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [Classified] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [Classified] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [Classified] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [Classified] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [Classified] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [Classified] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [Classified] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [Classified] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [Classified] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [Classified] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [Classified] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [Classified] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [Classified] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [Classified] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [Classified] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [Classified] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [Classified] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [Classified] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [Classified] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [Classified] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [Classified] SET RECOVERY FULL 
-GO
-ALTER DATABASE [Classified] SET  MULTI_USER 
-GO
-ALTER DATABASE [Classified] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [Classified] SET DB_CHAINING OFF 
-GO
-ALTER DATABASE [Classified] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
-GO
-ALTER DATABASE [Classified] SET TARGET_RECOVERY_TIME = 60 SECONDS 
-GO
-ALTER DATABASE [Classified] SET DELAYED_DURABILITY = DISABLED 
-GO
-EXEC sys.sp_db_vardecimal_storage_format N'Classified', N'ON'
-GO
-ALTER DATABASE [Classified] SET QUERY_STORE = OFF
-GO
-USE [Classified]
-GO
-/****** Object:  Table [dbo].[Person]    Script Date: 28-Mar-20 11:17:49 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[Person](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [nvarchar](50) NOT NULL,
@@ -97,7 +12,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Category]    Script Date: 28-Mar-20 11:17:50 PM ******/
+/****** Object:  Table [dbo].[Category]    Script Date: 05-Apr-20 2:18:12 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -116,7 +31,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Ad]    Script Date: 28-Mar-20 11:17:50 PM ******/
+/****** Object:  Table [dbo].[Ad]    Script Date: 05-Apr-20 2:18:12 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -145,7 +60,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[AdView]    Script Date: 28-Mar-20 11:17:50 PM ******/
+/****** Object:  View [dbo].[AdView]    Script Date: 05-Apr-20 2:18:12 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -162,7 +77,7 @@ FROM            dbo.Ad INNER JOIN
                          dbo.Category ON dbo.Ad.CategoryId = dbo.Category.Id INNER JOIN
                          dbo.Person ON dbo.Ad.UserId = dbo.Person.Id
 GO
-/****** Object:  View [dbo].[AdInfoView]    Script Date: 28-Mar-20 11:17:50 PM ******/
+/****** Object:  View [dbo].[AdInfoView]    Script Date: 05-Apr-20 2:18:12 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -178,7 +93,7 @@ SELECT        dbo.Ad.Id, dbo.Ad.UserId, dbo.Ad.CategoryId, dbo.Ad.Type, dbo.Ad.P
 FROM            dbo.Ad INNER JOIN
                          dbo.Category ON dbo.Ad.CategoryId = dbo.Category.Id
 GO
-/****** Object:  Table [dbo].[Offer]    Script Date: 28-Mar-20 11:17:50 PM ******/
+/****** Object:  Table [dbo].[Offer]    Script Date: 05-Apr-20 2:18:12 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -196,7 +111,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ReportedAd]    Script Date: 28-Mar-20 11:17:50 PM ******/
+/****** Object:  Table [dbo].[ReportedAd]    Script Date: 05-Apr-20 2:18:12 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -213,7 +128,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Role]    Script Date: 28-Mar-20 11:17:50 PM ******/
+/****** Object:  Table [dbo].[Role]    Script Date: 05-Apr-20 2:18:12 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -227,7 +142,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserRole]    Script Date: 28-Mar-20 11:17:50 PM ******/
+/****** Object:  Table [dbo].[UserRole]    Script Date: 05-Apr-20 2:18:12 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -237,6 +152,36 @@ CREATE TABLE [dbo].[UserRole](
 	[RoleId] [int] NOT NULL
 ) ON [PRIMARY]
 GO
+SET IDENTITY_INSERT [dbo].[Ad] ON 
+
+INSERT [dbo].[Ad] ([Id], [UserId], [CategoryId], [Type], [PostedOn], [ContactFlag], [Title], [Description], [Price], [ImageUrls], [FieldValues], [ExpiryDate], [OfferCount], [CommentCount], [RemovedReason], [RemovedBy], [RemovedOn]) VALUES (1, 1, 1, 1, CAST(N'2019-07-10T19:56:36.000' AS DateTime), 1, N'Yamaha YZF R15', N'Yamaha YZF R15 is a premium fully faired motorcycle in the 150cc segment.', 83700, N'[{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha1.jpg"},{"url":"harley.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha.jpg"}]', N'[{"FieldName":"Milage","FieldValue":"200"}]', CAST(N'2019-05-18T00:00:00.000' AS DateTime), 22, 12, NULL, NULL, NULL)
+INSERT [dbo].[Ad] ([Id], [UserId], [CategoryId], [Type], [PostedOn], [ContactFlag], [Title], [Description], [Price], [ImageUrls], [FieldValues], [ExpiryDate], [OfferCount], [CommentCount], [RemovedReason], [RemovedBy], [RemovedOn]) VALUES (2, 1, 1, 1, CAST(N'2019-07-10T19:56:36.000' AS DateTime), 1, N'Harely Bike', N'The Harely Bike is a premium fully faired motorcycle in the 150cc segment.', 83700, N'[{"url":"harley.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha1.jpg"},{"url":"harley.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha.jpg"}]', N'[{"FieldName":"Milage","FieldValue":"200"}]', CAST(N'2019-05-18T00:00:00.000' AS DateTime), 20, 12, NULL, NULL, NULL)
+INSERT [dbo].[Ad] ([Id], [UserId], [CategoryId], [Type], [PostedOn], [ContactFlag], [Title], [Description], [Price], [ImageUrls], [FieldValues], [ExpiryDate], [OfferCount], [CommentCount], [RemovedReason], [RemovedBy], [RemovedOn]) VALUES (7, 2, 1, 1, CAST(N'2019-07-10T19:56:36.000' AS DateTime), 1, N'Yamaha YZF R15', N'The Yamaha R15 v3 is a premium fully faired motorcycle in the 150cc segment.', 75000, N'[{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha1.jpg"},{"url":"harley.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha.jpg"}]', N'[{"FieldName":"Milage","FieldValue":"200"}]', CAST(N'2019-05-18T00:00:00.000' AS DateTime), 0, 0, NULL, NULL, NULL)
+INSERT [dbo].[Ad] ([Id], [UserId], [CategoryId], [Type], [PostedOn], [ContactFlag], [Title], [Description], [Price], [ImageUrls], [FieldValues], [ExpiryDate], [OfferCount], [CommentCount], [RemovedReason], [RemovedBy], [RemovedOn]) VALUES (8, 1, 1, 1, CAST(N'2019-07-10T19:56:36.000' AS DateTime), 1, N'Harely Bike', N'The Harely Bike is a premium fully faired motorcycle in the 150cc segment.', 83700, N'[{"url":"harley.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha1.jpg"},{"url":"harley.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha.jpg"}]', N'[{"FieldName":"Milage","FieldValue":"200"}]', CAST(N'2019-05-18T00:00:00.000' AS DateTime), 18, 12, NULL, NULL, NULL)
+INSERT [dbo].[Ad] ([Id], [UserId], [CategoryId], [Type], [PostedOn], [ContactFlag], [Title], [Description], [Price], [ImageUrls], [FieldValues], [ExpiryDate], [OfferCount], [CommentCount], [RemovedReason], [RemovedBy], [RemovedOn]) VALUES (1007, 1, 1, 1, CAST(N'2019-07-10T19:56:36.000' AS DateTime), 1, N'Harelt Bike', N'The Harely Bike is a premium fully faired motorcycle in the 150cc segment.', 95000, N'[{"url":"harley.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha1.jpg"},{"url":"harley.jpg"},{"url":"bike-yamaha.jpg"},{"url":"bike-yamaha.jpg"}]', N'[{"FieldName":"Milage","FieldValue":"200"}]', CAST(N'2019-12-31T00:00:00.000' AS DateTime), 1, 0, NULL, NULL, NULL)
+SET IDENTITY_INSERT [dbo].[Ad] OFF
+INSERT [dbo].[Category] ([Id], [Name], [Icon], [CreatedOn], [Description], [CreatedBy], [Fields]) VALUES (1, N'Vehicle', N'fas fa-motorcycle', CAST(N'2019-02-04T00:00:00.000' AS DateTime), N'Ad related to vehicle', 0, N'[{"FieldType":"Number","FieldName":"Milage"}]')
+SET IDENTITY_INSERT [dbo].[Offer] ON 
+
+INSERT [dbo].[Offer] ([Id], [AdId], [UserId], [Price], [Message], [MadeOn]) VALUES (16, 1, 1, 75000, N'I want this product', CAST(N'2019-12-09T12:14:15.383' AS DateTime))
+INSERT [dbo].[Offer] ([Id], [AdId], [UserId], [Price], [Message], [MadeOn]) VALUES (17, 2, 1, 75000, N'sdfsdfgdsf ad2', CAST(N'2019-12-09T12:19:48.613' AS DateTime))
+INSERT [dbo].[Offer] ([Id], [AdId], [UserId], [Price], [Message], [MadeOn]) VALUES (18, 2, 1, 75000, N'afasfdsad', CAST(N'2019-12-09T12:21:14.700' AS DateTime))
+INSERT [dbo].[Offer] ([Id], [AdId], [UserId], [Price], [Message], [MadeOn]) VALUES (1002, 1, 4, 75004, N'dsafasf', CAST(N'2019-12-16T11:43:44.243' AS DateTime))
+INSERT [dbo].[Offer] ([Id], [AdId], [UserId], [Price], [Message], [MadeOn]) VALUES (1003, 1007, 4, 75001, N'asdasdf', CAST(N'2019-12-18T05:39:58.633' AS DateTime))
+SET IDENTITY_INSERT [dbo].[Offer] OFF
+SET IDENTITY_INSERT [dbo].[Person] ON 
+
+INSERT [dbo].[Person] ([Id], [Name], [Icon], [Phone], [Mail], [Location]) VALUES (1, N'Anjali', N'user-icon.png', N'9792632762', N'anjali@gmail.com', N'Hyderabad Corp Office')
+INSERT [dbo].[Person] ([Id], [Name], [Icon], [Phone], [Mail], [Location]) VALUES (2, N'Deepak', N'admin-icon.jpg', N'9863626373', N'deepak@gmail.com', N'bangalore')
+INSERT [dbo].[Person] ([Id], [Name], [Icon], [Phone], [Mail], [Location]) VALUES (3, N'Ranjan', N'user-icon.png', N'9723823663', N'ranjan@gmail.com', N'hyderabad')
+INSERT [dbo].[Person] ([Id], [Name], [Icon], [Phone], [Mail], [Location]) VALUES (4, N'Hemanth', N'user-icon.png', N'9798467894', N'hemanth@gmail.com', N'Hyderabad')
+SET IDENTITY_INSERT [dbo].[Person] OFF
+SET IDENTITY_INSERT [dbo].[ReportedAd] ON 
+
+INSERT [dbo].[ReportedAd] ([Id], [AdId], [UserId], [Message], [MadeOn]) VALUES (1, 2, 1, N'ReportCategory: fraud and fraud ad', CAST(N'2019-12-09T12:20:19.940' AS DateTime))
+INSERT [dbo].[ReportedAd] ([Id], [AdId], [UserId], [Message], [MadeOn]) VALUES (2, 1, 4, N'ReportCategory: censored and trfrhgsdhtdwads', CAST(N'2019-12-17T05:13:59.523' AS DateTime))
+INSERT [dbo].[ReportedAd] ([Id], [AdId], [UserId], [Message], [MadeOn]) VALUES (4, 1007, 4, N'ReportCategory: censored and ,m;klm;lkm', CAST(N'2019-12-18T05:40:06.403' AS DateTime))
+SET IDENTITY_INSERT [dbo].[ReportedAd] OFF
 ALTER TABLE [dbo].[Ad]  WITH CHECK ADD  CONSTRAINT [FK_Ad_Category] FOREIGN KEY([CategoryId])
 REFERENCES [dbo].[Category] ([Id])
 GO
@@ -529,7 +474,4 @@ End
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'AdView'
 GO
-USE [master]
-GO
-ALTER DATABASE [Classified] SET  READ_WRITE 
-GO
+
