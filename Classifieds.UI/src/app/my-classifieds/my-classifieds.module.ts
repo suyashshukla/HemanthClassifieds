@@ -10,25 +10,27 @@ import { PublishingDetailsComponent } from './create-ad/publishing-details/publi
 import { CreateAdComponent } from './create-ad/create-ad.component';
 import { MyClassifiedsModuleRouting } from './my-classifieds-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { SliderComponent } from './Slider';
 
 @NgModule({
-    declarations:[
-        MyClassifiedsComponent,
-        ActiveClassifiedsComponent,
-        HistoryComponent,
-        ItemDetailsComponent,
-        AddImagesComponent,
-        PublishingDetailsComponent,
-        CreateAdComponent
-    ],
-    imports:[
-        RouterModule,
-        CommonModule,
-        MyClassifiedsModuleRouting,
-        SharedModule
-    ]
+  declarations: [
+    MyClassifiedsComponent,
+    ActiveClassifiedsComponent,
+    HistoryComponent,
+    ItemDetailsComponent,
+    AddImagesComponent,
+    PublishingDetailsComponent,
+    CreateAdComponent,
+    SliderComponent
+  ],
+  imports: [
+    RouterModule,
+    CommonModule,
+    MyClassifiedsModuleRouting,
+    SharedModule
+  ]
 })
 
-export class MyClassifiedsModule{
+export class MyClassifiedsModule {
 
 }

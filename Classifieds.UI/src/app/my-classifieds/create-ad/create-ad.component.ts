@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Ad } from "../../classifieds/Models/ad.model";
+import { OnInit, Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
-  selector: 'app-create-ad',
-  templateUrl: './create-ad.component.html',
-  styleUrls: ['./create-ad.component.css']
+  templateUrl:'./create-ad.component.html'
 })
 export class CreateAdComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+ngOnInit() {
+}
+
 
 }

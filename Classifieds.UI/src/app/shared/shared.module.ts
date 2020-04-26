@@ -10,39 +10,40 @@ import { ListLayoutComponent } from './list-layout/list-layout.component';
 import { AdCardGridComponent } from './grid-layout/ad-card-grid/ad-card-grid.component';
 import { AdCardListComponent } from './list-layout/ad-card-list/ad-card-list.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ImageCarouselComponent } from './ad/image-carousel/image-carousel.component';
 @NgModule({
-    declarations: [
-        FilterBarComponent,
-        AdComponent,
-        CommentsComponent,
-        ImageSliderComponent,
-        PublisherCardComponent,
-        GridLayoutComponent,
-        ListLayoutComponent,
-        AdCardGridComponent,
-        AdCardListComponent,
-        ImageSliderComponent,
-        ImageCarouselComponent,
+  declarations: [
+    FilterBarComponent,
+    AdComponent,
+    CommentsComponent,
+    ImageSliderComponent,
+    PublisherCardComponent,
+    GridLayoutComponent,
+    ListLayoutComponent,
+    AdCardGridComponent,
+    AdCardListComponent,
+    ImageSliderComponent,
+    ImageCarouselComponent,
 
-    ],
-    imports: [CommonModule,
-        RouterModule,
-        ReactiveFormsModule],
-    exports: [
-        FilterBarComponent,
-        CommonModule,
-        AdComponent,
-        CommentsComponent,
-        ImageSliderComponent,
-        PublisherCardComponent,
-        GridLayoutComponent,
-        ListLayoutComponent,
-        AdCardGridComponent,
-        AdCardListComponent,
-        ImageSliderComponent,
-        ReactiveFormsModule
-    ],
+  ],
+  imports: [CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule],
+  exports: [
+    FilterBarComponent,
+    CommonModule,
+    AdComponent,
+    CommentsComponent,
+    ImageSliderComponent,
+    PublisherCardComponent,
+    GridLayoutComponent,
+    ListLayoutComponent,
+    AdCardGridComponent,
+    AdCardListComponent,
+    ImageSliderComponent,
+    ReactiveFormsModule
+  ],
 })
 export class SharedModule { }

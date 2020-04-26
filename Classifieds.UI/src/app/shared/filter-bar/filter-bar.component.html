@@ -1,72 +1,79 @@
 <div class="card">
-    <div class="card-body">
+  <div class="card-body">
     <div class="filters-container d-flex flex-wrap">
-    <div class="filter dropdown">
+      <div class="filter dropdown">
         <a class="dropdown-toggle nav-link icon" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span><span class="filter-label">Ad Type</span></span>
-            <!--  <span class="arrow-icon icon"><i class="fas fa-caret-down"></i></span> -->
-        </a>          
+          <span><span class="filter-label">{{selectedType}}</span></span>
+          <!--  <span class="arrow-icon icon"><i class="fas fa-caret-down"></i></span> -->
+        </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left: 0px; right: auto;">
-            <li>
-                <label class="dropdown-item mr-auto">
-                    <label for="">Sale</label>
-                </label>
-                </li>
-                <li>
-                <label class="dropdown-item">
-                    
-                    <label for="">Rent</label>
-                </label>
-                </li>
-                    
-                        <!-- <label class="dropdown-item"><input class="checkbox-sm" type="checkbox" id=""> -->
-                         
-                </ul>
-            </div>
-            <div class="filter dropdown">
-                <a class="dropdown-toggle nav-link icon" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span><span class="filter-label">Category</span></span>
-                    </a> 
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left: 0px; right: auto;">
-                            <li>
-                                <label class="dropdown-item">
-                                    <label for="">vehicle</label>
-                                </label>
-                            </li>
-                    </ul>
-                </div>
-                <div class="filter dropdown">
-                    <a class="dropdown-toggle nav-link icon" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span><span class="filter-label">Posted</span></span>
-                        </a> 
-                </div>
-                 <div class="filter dropdown" >
-                        <a class="dropdown-toggle nav-link icon" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span><span class="filter-label">Location</span></span>
-                            </a> 
-                </div>
-                <div class="filter-actions flex-grow-1">
-                    <div class="input-search h-100">
-                        <input autocomplete="off" class="form-control border-0 h-100 w-100" name="filter" placeholder="Search" type="text">
-                        <span class="search-icon icon"><i class="fas fa-search "></i></span>
-                    </div>
-                </div>
-                <div class="filter-actions d-flex"> 
-                <a  class="" id="reset">
-                    <div class="d-flex justify-content-center  align-center-items">
-                    <span class="reset-icon icon"><i class="fas fa-redo-alt"></i></span>
-                    <span class="filter-label pl-8">Reset</span>
-                </div>
-                </a>
-                </div>
-                <div class="filter-actions d-flex">
-                <div class="layout-btns d-flex justify-content-center  align-center-items">
-                    <a class="layout-icon mr-3" (click)="toggle()"><span class="icon"  [ngClass]="{'icon-active': active===true}" ><i class="fas fa-th"></i></span></a>
-                    <a class="layout-icon" (click)="toggle()"><span class="icon" [ngClass]="{'icon-active': active===false}"><i class="fas fa-list-ul"></i></span></a>
-                </div>
-            </div>
-                
-            </div>
+          <li *ngFor="let type of types">
+            <label class="dropdown-item mr-auto">
+              <label for="" (click)="emitEvent(dropdownType.Type,type)">{{adType[type]}}</label>
+            </label>
+          </li>
+
+          <!-- <label class="dropdown-item"><input class="checkbox-sm" type="checkbox" id=""> -->
+
+        </ul>
+      </div>
+      <div class="filter dropdown">
+        <a class="dropdown-toggle nav-link icon" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span><span class="filter-label">{{selectedCategory}}</span></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left: 0px; right: auto;">
+          <li *ngFor="let category of categories">
+            <label class="dropdown-item">
+              <label for="" (click)="emitEvent(dropdownType.Category,category)">{{adCategory[category]}}</label>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="filter dropdown">
+        <a class="dropdown-toggle nav-link icon" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span><span class="filter-label">{{selectedPosted}}</span></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left: 0px; right: auto;">
+          <li *ngFor="let post of posted">
+            <label class="dropdown-item">
+              <label for="" (click)="emitEvent(dropdownType.Posted,post)">{{adPosted[post]}}</label>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="filter dropdown">
+        <a class="dropdown-toggle nav-link icon" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span><span class="filter-label">{{selectedLocation}}</span></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left: 0px; right: auto;">
+          <li *ngFor="let location of locations">
+            <label class="dropdown-item">
+              <label for="" (click)="emitEvent(dropdownType.Location,location)">{{adLocation[location]}}</label>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="filter-actions flex-grow-1">
+        <div class="input-search h-100">
+          <input autocomplete="off" class="form-control border-0 h-100 w-100" name="filter" placeholder="Search" type="text" [ngModel]="searchQuery" (ngModelChange)="onSearchPerformed($event)">
+          <span class="search-icon icon"><i class="fas fa-search "></i></span>
         </div>
+      </div>
+      <div class="filter-actions d-flex">
+        <a class="" id="reset" (click)="resetFilter()">
+          <div class="d-flex justify-content-center  align-center-items">
+            <span class="reset-icon icon"><i class="fas fa-redo-alt"></i></span>
+            <span class="filter-label pl-8">Reset</span>
+          </div>
+        </a>
+      </div>
+      <div class="filter-actions d-flex">
+        <div class="layout-btns d-flex justify-content-center  align-center-items">
+          <a class="layout-icon mr-3" (click)="toggle()"><span class="icon" [ngClass]="{'icon-active': active===true}"><i class="fas fa-th"></i></span></a>
+          <a class="layout-icon" (click)="toggle()"><span class="icon" [ngClass]="{'icon-active': active===false}"><i class="fas fa-list-ul"></i></span></a>
+        </div>
+      </div>
+
     </div>
-    
+  </div>
+</div>
